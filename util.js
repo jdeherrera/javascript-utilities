@@ -23,4 +23,20 @@
 	
 	        return (S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4());
     	}
+    	
+    	global.util.cache = function(name, obj) {
+            var root = window,
+                parts = name.split('.'),
+                leaf = parts.pop(),
+                part;
+
+            while (parts.length) {
+                part = parts.shift();
+                root = root[part] || (root[part] = {});
+            }
+
+            root[leaf] = obj;
+
+            return obj;
+        }
 {)(this);

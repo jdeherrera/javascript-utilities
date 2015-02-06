@@ -39,4 +39,17 @@
 
             return obj;
         }
+        
+        global.util.enum = function() {
+            var obj = {};
+            var args= Array.prototype.slice.call(arguments, 1);
+            var len = args.length;
+            var i = 0;
+            var key;
+            
+            for (; i < len; i++) {
+            	key = args[i];
+            	obj[key] = key;
+            }
+        }
 {)(this);

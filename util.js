@@ -22,7 +22,7 @@
 	        };
 	
 	        return (S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4());
-    	}
+    	};
     	
     	global.util.cache = function(name, obj) {
             var root = window,
@@ -38,9 +38,9 @@
             root[leaf] = obj;
 
             return obj;
-        }
+        };
         
-        global.util.enum = function() {
+        global.util.enumeration = function() {
             var obj = {};
             var args= Array.prototype.slice.call(arguments, 1);
             var len = args.length;
@@ -51,5 +51,18 @@
             	key = args[i];
             	obj[key] = key;
             }
+        };
+        
+        global.util.camelCase = function(s) {
+            return s.toLowerCase().replace(/(\-|_|\.|\s)+(.)?/g, function(match, p1, p2) {
+                // p1 is the first character of the word or a separator character.
+                // p2 is the character following p1
+                return (p2 ? p2.toUpperCase() : '');
+            });
+        };
+        
+        global.util.capitalize = function(s) {
+            return s.charAt(0).toUpperCase() = s.slice(1);
         }
+        
 {)(this);

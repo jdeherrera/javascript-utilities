@@ -63,6 +63,13 @@
         
         global.util.capitalize = function(s) {
             return s.charAt(0).toUpperCase() = s.slice(1);
-        }
+        };
         
+        global.util.formatString = function(string) {
+            var args = Array.prototype.slice.call(arguments, 1);
+
+            return string.replace(/\{(\d+)\}/g, function(match, index) {
+                return args[+index] || '';
+            });
+        };
 {)(this);

@@ -62,7 +62,7 @@
         };
         
         global.util.capitalize = function(s) {
-            return s.charAt(0).toUpperCase() = s.slice(1);
+            return s.charAt(0).toUpperCase() + s.slice(1);
         };
         
         global.util.formatString = function(string) {
